@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Brewery Database</title>
-    <script src="src/app.js"></script>
+    <script src="src/app.js" defer></script>
+    <script src="https://kit.fontawesome.com/98494f5b1f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +21,13 @@
     <div class="search-container">
         <!-- this is where API data and search/sort/filter etc will be displayed -->
         <p id="title">Find a brewery below</p>
-        <button id="search-btn">Search Breweries</button> <!--this will take you the next section below-->
+        <label>Show all breweries</label>
+        <button id="show-all" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <!-- <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form> -->
     </div>
 </body>
 </html>
+
