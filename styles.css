@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 2rem;
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.page-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition-duration: 0.4s;
+}
+
+.page-link:hover {
+    opacity: 70%;
+}
+
+.page-link:visited {
+    text-decoration: none;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15rem;
+}
+
+#title {
+    font-size: 2rem;
+}
+
+#show-all {
+    font-size: 1.5rem;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    background-color: lightslategray;
+    transition-duration: 0.4s;
+}
+
+#show-all:hover {
+    cursor: pointer;
+    opacity: 70%;
+}

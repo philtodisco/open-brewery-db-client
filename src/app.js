@@ -1,6 +1,7 @@
 const showAllBtn = document.getElementById('show-all')
 const breweryList = document.getElementById('brewery-list')
 
+//this function displays API data as an HTML list
 function displayData(data) {
     data.forEach(brewery => {
         let breweryListItem = document.createElement("li")
@@ -11,12 +12,12 @@ function displayData(data) {
     })
 }
 
+//GET all data from API and call
 function getAllBreweries() {
     fetch('https://api.openbrewerydb.org/breweries')
     .then((response) => response.json())
     .then((data) => {
         displayData(data)
-
     })
 }
 
