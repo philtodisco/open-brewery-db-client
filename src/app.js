@@ -1,8 +1,10 @@
-const showAllBtn = document.getElementById('show-all')
+const searchBtn = document.getElementById('search-btn')
 const breweryList = document.getElementById('brewery-list')
+const searchForm = document.getElementById('search-form')
+let searchValue = ""
 
 //this function displays API data as an HTML list
-function displayData(data) {
+let displayData = (data) => {
     data.forEach(brewery => {
         let breweryListItem = document.createElement("li")
     breweryListItem.classList.add("list-item")
@@ -12,13 +14,18 @@ function displayData(data) {
     })
 }
 
-//GET all data from API and call
-function getAllBreweries() {
-    fetch('https://api.openbrewerydb.org/breweries')
+let searchByCity = () => {
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${searchValue}&per_page=100`)
     .then((response) => response.json())
-    .then((data) => {
-        displayData(data)
-    })
+    .then((data) => displayData(data))
 }
 
-showAllBtn.addEventListener('click', getAllBreweries)
+//stores the value of the search form in real time
+searchForm.addEventListener("input", (e) => {
+    searchValue = e.target.value
+})
+
+
+searchBtn.addEventListener('click', () => {
+    searchByCity()
+})

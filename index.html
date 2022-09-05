@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Brewery Database</title>
     <script src="src/app.js" defer></script>
-    <script src="https://kit.fontawesome.com/98494f5b1f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/62ed12553f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -21,15 +21,16 @@
             </div>
         </div>
     </header>
+    <!-- this is where API data and search/sort/filter etc will be displayed -->
     <div class="search-container">
-        <!-- this is where API data and search/sort/filter etc will be displayed -->
         <p id="title">Find a brewery below</p>
-        <button id="show-all" type="submit">Show All</button>
+        <div class="search-field">
+            <input type="text" id="search-form" placeholder="Search..." name="input">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+    <div class="results-container">
         <ul id="brewery-list"></ul>
-        <!-- <form>
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form> -->
     </div>
 </body>
 </html>
