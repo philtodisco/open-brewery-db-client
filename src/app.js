@@ -28,7 +28,6 @@ searchForm.addEventListener("input", (e) => {
     searchValue = e.target.value
 })
 
-
 searchBtn.addEventListener('click', () => {
     searchByCity()
 })
