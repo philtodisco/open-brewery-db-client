@@ -1,6 +1,7 @@
 const searchBtn = document.getElementById('search-btn')
 const breweryList = document.getElementById('brewery-list')
 const searchForm = document.getElementById('search-form')
+const resultsContainer = document.getElementById('results-container')
 let searchValue = ""
 
 //this function displays API data as an HTML list
@@ -33,4 +34,5 @@ searchForm.addEventListener("input", (e) => {
 
 searchBtn.addEventListener('click', () => {
     searchByCity()
+    resultsContainer.scrollIntoView({behavior: "smooth"})
 })

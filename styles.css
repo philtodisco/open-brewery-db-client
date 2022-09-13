@@ -89,7 +89,7 @@ header {
     opacity: 60%;
 }
 
-.results-container {
+#results-container {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -109,6 +109,7 @@ ul {
 .list-item-title {
     font-size: 2.5rem;
     padding-left: .25rem;
+    padding-right: .25rem;
 }
 
 .list-item-body {
