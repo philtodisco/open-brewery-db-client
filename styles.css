@@ -87,10 +87,24 @@ header {
 
 .results-container {
     height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 ul {
     list-style: none;
 }
 
-/* \ #CAEBF2 #A9A9A9 #FF3B3F #EFEFEF */
+.list-item-container {
+    background-color: white;
+}
+
+/* #list-item-title {
+
+}
+
+#list-item-body {
+
+} */
+
+

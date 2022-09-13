@@ -6,14 +6,17 @@ let searchValue = ""
 //this function displays API data as an HTML list
 let displayData = (data) => {
     data.forEach(brewery => {
+        let listItemContainer = document.createElement("div")
+        listItemContainer.classList.add('list-item-container')
+        breweryList.appendChild(listItemContainer)
         let listItemTitle = document.createElement("li")
         listItemTitle.classList.add("list-item-title")
         listItemTitle.textContent += `${brewery.name}`
-        breweryList.appendChild(listItemTitle)
+        listItemContainer.appendChild(listItemTitle)
         let listItemBody = document.createElement("li")
         listItemBody.classList.add('list-item-body')
         listItemBody.textContent += `${brewery.city}, ${brewery.state}`
-        breweryList.appendChild(listItemBody)
+        listItemContainer.appendChild(listItemBody)
     })
 }
 
