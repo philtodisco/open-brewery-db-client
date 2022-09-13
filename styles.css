@@ -65,12 +65,16 @@ header {
     background-color: white;
     display: flex;
     height: 3rem;
+    border-radius: 10px;
 }
 
 #search-form {
     border: none;
     font-size: 2rem;
     outline: none;
+    /* border-radius: 10px; */
+    background: none;
+    padding: .5rem;
 }
 
 #search-btn {
@@ -97,14 +101,19 @@ ul {
 
 .list-item-container {
     background-color: white;
+    width: 75vw;
+    margin: 2rem;
+    border-radius: 10px;
 }
 
-/* #list-item-title {
-
+.list-item-title {
+    font-size: 2.5rem;
+    padding-left: .25rem;
 }
 
-#list-item-body {
-
-} */
+.list-item-body {
+    padding: .5rem;
+    opacity: 60%;
+}
 
 
