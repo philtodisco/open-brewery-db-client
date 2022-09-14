@@ -18,6 +18,7 @@ let displayData = (data) => {
         listItemBody.classList.add('list-item-body')
         listItemBody.textContent += `${brewery.city}, ${brewery.state}`
         listItemContainer.appendChild(listItemBody)
+        console.log(data)
     })
 }
 
@@ -27,14 +28,30 @@ let searchByCity = () => {
     .then((data) => displayData(data))
 }
 
-//stores the value of the search form in real time
+//updates and stores the value of the search form in real time
 searchForm.addEventListener("input", (e) => {
     searchValue = e.target.value
 })
 
+
 searchBtn.addEventListener('click', () => {
-    searchByCity()
+    // searchByCity()
+    searchBreweries()
     setTimeout(() => {
         resultsContainer.scrollIntoView({behavior: "smooth"})
     }, 100)     
 })
+
+let searchBreweries = () => {
+    if (searchValue <= 99999) {
+        fetch(`https://api.openbrewerydb.org/breweries?by_postal=${searchValue}&per_page=100`)
+        .then((response) => response.json())
+        .then((data) => displayData(data))
+        return
+        }
+}
+
+
+// if (data = []) {
+//     console.log("this works")
+// }
