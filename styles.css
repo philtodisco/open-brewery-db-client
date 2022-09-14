@@ -72,7 +72,6 @@ header {
     border: none;
     font-size: 2rem;
     outline: none;
-    /* border-radius: 10px; */
     background: none;
     padding: .5rem;
 }
@@ -90,7 +89,7 @@ header {
 }
 
 #results-container {
-    height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
 }

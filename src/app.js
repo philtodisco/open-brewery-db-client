@@ -34,5 +34,7 @@ searchForm.addEventListener("input", (e) => {
 
 searchBtn.addEventListener('click', () => {
     searchByCity()
-    resultsContainer.scrollIntoView({behavior: "smooth"})
+    setTimeout(() => {
+        resultsContainer.scrollIntoView({behavior: "smooth"})
+    }, 100)     
 })
