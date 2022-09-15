@@ -22,8 +22,12 @@ let displayData = (data) => {
         listItemContainer.appendChild(listItemTitle)
         let listItemBody = document.createElement("li")
         listItemBody.classList.add('list-item-body')
-        listItemBody.textContent += `${brewery.city}, ${brewery.state}`
+        listItemBody.textContent += `${brewery.street}\r\n${brewery.city}, ${brewery.state} ${brewery.postal_code}`
         listItemContainer.appendChild(listItemBody)
+        let phoneIcon = document.createElement("li")
+        phoneIcon.classList.add("phone-icon")
+        phoneIcon.innerHTML = `<i class="fa-solid fa-phone"></i>`
+        listItemContainer.appendChild(phoneIcon)
     })
     slowScroll()
 }

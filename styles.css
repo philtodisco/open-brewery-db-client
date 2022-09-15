@@ -114,6 +114,14 @@ ul {
 .list-item-body {
     padding: .5rem;
     opacity: 60%;
+    white-space: pre;
 }
+
+/* #search-btn {
+    font-size: xx-large;
+    border: none;
+    background: none;
+    transition-duration: 0.4s;
+} */
 
 
