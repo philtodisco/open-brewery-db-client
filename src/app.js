@@ -4,6 +4,12 @@ const searchForm = document.getElementById('search-form')
 const resultsContainer = document.getElementById('results-container')
 let searchValue = ""
 
+let slowScroll = () => {
+setTimeout(() => {
+    resultsContainer.scrollIntoView({behavior: "smooth"})
+    }, 100)
+} 
+
 //this function displays API data as an HTML list
 let displayData = (data) => {
     data.forEach(brewery => {
@@ -18,14 +24,8 @@ let displayData = (data) => {
         listItemBody.classList.add('list-item-body')
         listItemBody.textContent += `${brewery.city}, ${brewery.state}`
         listItemContainer.appendChild(listItemBody)
-        console.log(data)
     })
-}
-
-let searchByCity = () => {
-    fetch(`https://api.openbrewerydb.org/breweries?by_city=${searchValue}&per_page=100`)
-    .then((response) => response.json())
-    .then((data) => displayData(data))
+    slowScroll()
 }
 
 //updates and stores the value of the search form in real time
@@ -33,13 +33,8 @@ searchForm.addEventListener("input", (e) => {
     searchValue = e.target.value
 })
 
-
 searchBtn.addEventListener('click', () => {
-    // searchByCity()
-    searchBreweries()
-    setTimeout(() => {
-        resultsContainer.scrollIntoView({behavior: "smooth"})
-    }, 100)     
+    searchBreweries()  
 })
 
 let searchBreweries = () => {
@@ -47,11 +42,18 @@ let searchBreweries = () => {
         fetch(`https://api.openbrewerydb.org/breweries?by_postal=${searchValue}&per_page=100`)
         .then((response) => response.json())
         .then((data) => displayData(data))
-        return
+        return 
+    }
+    // search by cities
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${searchValue}&per_page=100`)
+    .then((response) => response.json())
+    .then((data) => {
+        if (data != []) {
+            displayData(data)
+            return
         }
+        fetch(`https://api.openbrewerydb.org/breweries/search?query=${searchValue}&per_page=100`)
+        .then((response) => response.json())
+        .then((data) => displayData(data))
+    }) 
 }
-
-
-// if (data = []) {
-//     console.log("this works")
-// }
