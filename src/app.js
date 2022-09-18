@@ -8,11 +8,19 @@ let slowScroll = () => {
 setTimeout(() => {
     resultsContainer.scrollIntoView({behavior: "smooth"})
     }, 100)
-} 
+}
 
 //this function displays API data as an HTML list
 let displayData = (data) => {
     data.forEach(brewery => {
+        let phone = brewery.phone
+        // check if valid phone number
+        if (phone === null || phone.length != 10) {
+            phone = "Phone number unavailable"
+        } else {
+            // use regex to group and replace
+            phone = phone.replace(/^(\d{3})(\d{3})(\d{4})/, '($1) $2-$3')
+        }
         let listItemContainer = document.createElement("div")
         listItemContainer.classList.add('list-item-container')
         breweryList.appendChild(listItemContainer)
@@ -22,13 +30,8 @@ let displayData = (data) => {
         listItemContainer.appendChild(listItemTitle)
         let listItemBody = document.createElement("li")
         listItemBody.classList.add('list-item-body')
-        listItemBody.textContent += `${brewery.street}\r\n${brewery.city}, ${brewery.state} ${brewery.postal_code}`
+        listItemBody.textContent += `${brewery.street}\r\n${brewery.city}, ${brewery.state} ${brewery.postal_code}\r\n${phone}`
         listItemContainer.appendChild(listItemBody)
-        let phoneIcon = document.createElement("li")
-        phoneIcon.classList.add("phone-icon")
-        phoneIcon.innerHTML = `<i class="fa-solid fa-phone"></i>`
-        listItemContainer.appendChild(phoneIcon)
-        console.log(brewery.phone)
     })
     slowScroll()
 }
@@ -61,17 +64,4 @@ let searchBreweries = () => {
         .then((response) => response.json())
         .then((data) => displayData(data))
     }) 
-}
-
-const testBtn = document.getElementById('test')
-
-testBtn.addEventListener('click', () => {
-    formatPhoneNum()
-})
-
-let formatPhoneNum = () => {
-    let testNum = "9783561000"
-    let formattedNum = testNum.replace(/^(\d{3})(\d{3})(\d{4})/, '($1)$2-$3')
-    
-    console.log(formattedNum)
 }
