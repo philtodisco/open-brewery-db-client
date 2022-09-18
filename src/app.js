@@ -65,3 +65,5 @@ let searchBreweries = () => {
         .then((data) => displayData(data))
     }) 
 }
+
+//update github email
