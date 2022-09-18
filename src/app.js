@@ -28,6 +28,7 @@ let displayData = (data) => {
         phoneIcon.classList.add("phone-icon")
         phoneIcon.innerHTML = `<i class="fa-solid fa-phone"></i>`
         listItemContainer.appendChild(phoneIcon)
+        console.log(brewery.phone)
     })
     slowScroll()
 }
@@ -60,4 +61,17 @@ let searchBreweries = () => {
         .then((response) => response.json())
         .then((data) => displayData(data))
     }) 
+}
+
+const testBtn = document.getElementById('test')
+
+testBtn.addEventListener('click', () => {
+    formatPhoneNum()
+})
+
+let formatPhoneNum = () => {
+    let testNum = "9783561000"
+    let formattedNum = testNum.replace(/^(\d{3})(\d{3})(\d{4})/, '($1)$2-$3')
+    
+    console.log(formattedNum)
 }
