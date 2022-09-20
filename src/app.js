@@ -24,6 +24,11 @@ let displayData = (data) => {
         let listItemContainer = document.createElement("div")
         listItemContainer.classList.add('list-item-container')
         breweryList.appendChild(listItemContainer)
+        if (brewery.website_url != null) {
+            listItemContainer.addEventListener('click', () => window.open(`${brewery.website_url}`))
+        } else if (brewery.website_url === null) {
+            listItemContainer.addEventListener('click', () => alert('URL not found!'))
+        }
         let listItemTitle = document.createElement("li")
         listItemTitle.classList.add("list-item-title")
         listItemTitle.textContent += `${brewery.name}`
