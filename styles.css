@@ -103,6 +103,12 @@ ul {
     width: 75vw;
     margin: 2rem;
     border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.list-item-container:hover {
+    opacity: 60%;
 }
 
 .list-item-title {

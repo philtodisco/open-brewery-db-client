@@ -24,6 +24,7 @@ let displayData = (data) => {
         let listItemContainer = document.createElement("div")
         listItemContainer.classList.add('list-item-container')
         breweryList.appendChild(listItemContainer)
+        // add clickable URL for each brewery
         if (brewery.website_url != null) {
             listItemContainer.addEventListener('click', () => window.open(`${brewery.website_url}`))
         } else if (brewery.website_url === null) {
@@ -70,5 +71,3 @@ let searchBreweries = () => {
         .then((data) => displayData(data))
     }) 
 }
-
-//update github email
