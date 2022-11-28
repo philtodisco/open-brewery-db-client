@@ -3,6 +3,8 @@ const breweryList = document.getElementById('brewery-list')
 const searchForm = document.getElementById('search-form')
 const resultsContainer = document.getElementById('results-container')
 let searchValue = ""
+const listOfStates = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+
 
 let slowScroll = () => {
 setTimeout(() => {
@@ -52,12 +54,16 @@ searchBtn.addEventListener('click', () => {
 })
 
 let searchBreweries = () => {
+    if (searchValue == "") {
+        return
+    }
     if (searchValue <= 99999) {
         fetch(`https://api.openbrewerydb.org/breweries?by_postal=${searchValue}&per_page=100`)
         .then((response) => response.json())
         .then((data) => displayData(data))
         return 
     }
+
     // search by cities
     fetch(`https://api.openbrewerydb.org/breweries?by_city=${searchValue}&per_page=100`)
     .then((response) => response.json())
